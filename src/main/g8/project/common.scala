@@ -29,4 +29,9 @@ object common {
     Project(name, file(name))
       .settings(commonSettings: _*)
       .settings(publishSettings: _*)
+
+  def webProject(name: String): Project =
+    Project(name, file(name))
+      .enablePlugins(JettyPlugin, TomcatPlugin)
+      .settings(commonSettings: _*)
 }

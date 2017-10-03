@@ -34,10 +34,18 @@ version in ThisBuild := {
 }
 
 // server project
-lazy val serverProject = publishableProject("server")
+lazy val serverProject = webProject("server")
+  .settings(
+    libraryDependencies ++= projects.server,
+    containerPort := 8080
+  )
 
 // client project
 lazy val clientProject = publishableProject("client")
 
 // admin ws project
-lazy val adminProject = publishableProject("admin")
+lazy val adminProject = webProject("admin")
+  .settings(
+    libraryDependencies ++= projects.admin,
+    containerPort := 8081
+  )

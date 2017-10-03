@@ -19,14 +19,15 @@ object Dependencies {
     val doobie = "0.4.4"
     val servlet = "2.5"
     val hikariCP = "2.7.1"
+    val logback = "1.2.2"
   }
 
   object libraries {
     val simulacrum = Seq("com.github.mpilquist" %% "simulacrum" % versions.simulacrum)
 
     val cats = Seq(
-      "com.typelevel" %% "cats" % versions.cats,
-      "com.typelevel" %% "cats-effect" % versions.catsEffect
+      "org.typelevel" %% "cats" % versions.cats,
+      "org.typelevel" %% "cats-effect" % versions.catsEffect
     )
 
     val freestyle = Seq(
@@ -74,6 +75,8 @@ object Dependencies {
     val servletApi = Seq(
       "javax.servlet" % "servlet-api" % versions.servlet % "provided"
     )
+
+    val logback = Seq("ch.qos.logback" % "logback-classic" % versions.logback)
   }
 
   object compilerPlugins {
@@ -83,7 +86,10 @@ object Dependencies {
   }
 
   object projects {
+    import libraries._
     // add your projects libraryDependencies here
-    
+    private val common = logback ++ unitTest ++ cats ++ freestyle ++ fs2
+    val server = common ++ circe ++ http4s_server ++ servletApi
+    val admin = common ++ circe ++ http4s_server ++ servletApi
   }
 }
