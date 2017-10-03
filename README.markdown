@@ -2,7 +2,7 @@ A [Giter8][g8] template for infrastructure team of [wexfin.com](https://www.wexf
 
 Template license
 ----------------
-Written in 2017 by bigknife<songzenghui@weibopay.com>
+Written in 2017 by <bigknife><songzenghui@weibopay.com>
 
 
 To the extent possible under law, the author(s) have dedicated all copyright and related
