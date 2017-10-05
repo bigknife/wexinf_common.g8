@@ -14,12 +14,13 @@ object Dependencies {
     val scalaTest = "3.0.1"
     val scalaCheck = "1.13.4"
     val scopt = "3.6.0"
-    val http4s = "0.17.0"
+    val http4s = "0.17.4"
     val circe = "0.8.0"
     val doobie = "0.4.4"
     val servlet = "2.5"
     val hikariCP = "2.7.1"
     val logback = "1.2.2"
+    val config = "1.3.1"
   }
 
   object libraries {
@@ -77,6 +78,8 @@ object Dependencies {
     )
 
     val logback = Seq("ch.qos.logback" % "logback-classic" % versions.logback)
+
+    val typesafeConfig = Seq("com.typesafe" % "config" % versions.config)
   }
 
   object compilerPlugins {
@@ -88,7 +91,7 @@ object Dependencies {
   object projects {
     import libraries._
     // add your projects libraryDependencies here
-    private val common = logback ++ unitTest ++ cats ++ freestyle ++ fs2
+    private val common = logback ++ unitTest ++ cats ++ freestyle ++ fs2 ++ typesafeConfig
     val server = common ++ circe ++ http4s_server ++ servletApi
     val admin = common ++ circe ++ http4s_server ++ servletApi
   }

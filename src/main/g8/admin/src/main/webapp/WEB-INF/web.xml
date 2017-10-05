@@ -1,8 +1,16 @@
 <web-app>
     <servlet>
         <servlet-name>$name;format="Camel"$AdminServlet</servlet-name>
-        <servlet-class>$name;format="snake"$.admin.world.servlet.$name;format="Camel"$AdminServlet</servlet-class>
+        <servlet-class>$name;format="snake"$.admin.world.servlet.$name;format="Camel"$AdminServletWrapper</servlet-class>
         <async-supported>true</async-supported>
+        <init-param>
+		  <param-name>applicationConfPath</param-name>
+		  <param-value>/etc/$name;format="snake"$/admin/application.conf</param-value>
+		</init-param>
+		<init-param>
+		  <param-name>logbackConfPath</param-name>
+		  <param-value>/etc/$name;format="snake"$/admin/logback.xml</param-value>
+		</init-param>
     </servlet>
 
     <servlet-mapping>
