@@ -1,4 +1,4 @@
-import sbt._,Keys._
+import sbt._, Keys._
 
 import Dependencies._
 import com.earldouglas.xwp.{JettyPlugin, TomcatPlugin}
